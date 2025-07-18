@@ -1,0 +1,46 @@
+\chapter{Metodologia}
+\label{chap:metodo}
+
+Com base no referencial teórico apresentado, estão sendo implementados geradores de fórmulas em FNC, considerando-se casos particulares dos problemas 2 e 3-SAT. Para cada exemplo, serão utilizados, respectivamente, $10^2$ e $10^3$ literais no processo de geração das fórmulas. Em ambas as configurações, objetiva-se determinar valoração dos literais que maximize o número de cláusulas satisfeitas, em conformidade com a definição MAX-SAT.
+
+\section{Ferramentas}
+
+Para o desenvolvimento dos geradores de fórmulas, optou-se pela utilização da linguagem de programação \textit{Python}. Essa escolha se deve à sua ampla adoção na comunidade científica, simplicidade sintática e vasta gama de bibliotecas voltadas à manipulação de estruturas lógicas, análise de dados e prototipagem rápida.
+
+\textit{Python} é especialmente indicado para tarefas de geração e manipulação de dados estruturados, como listas de cláusulas booleanas. Além disso, sua natureza interpretada e dinâmica favorece o desenvolvimento incremental e a depuração durante a criação de modelos como os utilizados no problema MAX-SAT. A legibilidade do código também facilita a replicação de experimentos e a reprodutibilidade dos resultados, que aspectos fundamentais em pesquisas computacionais \cite{millman2011python}.
+
+Um fator decisivo é a disponibilidade de bibliotecas como \textit{random} (para geração estocástica), \textit{itertools} (para manipulação combinatória) e \textit{numpy} (para cálculos vetoriais) \cite{mckinney2012python}, que reduzem significativamente o tempo de desenvolvimento. Em ambientes educacionais e experimentais, \textit{Python} é frequentemente adotado como primeira escolha exatamente por essas características \cite{millman2011python}.
+
+Outro diferencial importante é que \textit{Python} também oferece suporte completo à visualização de dados, o que será fundamental para este trabalho. Bibliotecas como \textit{matplotlib} e \textit{seaborn} permitem a criação de gráficos estatísticos e representações visuais dos resultados obtidos a partir das fórmulas geradas e suas valorações \cite{mckinney2012python}. Esses gráficos serão utilizados para ilustrar padrões de satisfação, comportamento de otimização e outras análises empíricas relevantes, facilitando a interpretação dos dados.
+
+A utilização de \textit{Python} proporciona um equilíbrio ideal entre produtividade, expressividade e suporte técnico, viabilizando uma implementação eficaz dos geradores de fórmulas com valoração associada.
+
+O código será escrito e executado no editor de código \textit{Visual Studio Code (VS Code)}, que oferece recursos como realce de sintaxe, terminal integrado, depuração e integração com o interpretador \textit{Python}. A versão utilizada será o \textit{Python 3.13}, escolhida por ser a versão estável mais recente e que tem compatibilidade com bibliotecas amplamente utilizadas. A execução ocorrerá no sistema operacional \textit{Windows 11}, que proporciona um ambiente gráfico acessível, com suporte adequado para ferramentas de desenvolvimento, bibliotecas e extensões \textit{Python}.
+
+Os testes serão feitos em um computador portátil com um processador Intel Core i7 13ª geração e 32Gb de memória RAM.
+
+\section{Geração de fórmulas 2-SAT para $10^2$ literais}
+
+No caso específico da geração de fórmulas 2-SAT, será implementado um procedimento controlado de sorteio para compor um conjunto de \textit{n} fórmulas distintas na FNC. Considerando-se, por exemplo, o caso em que $n = 10$, cada uma dessas dez fórmulas será construída a partir de um sorteio aleatório da quantidade de cláusulas, com valores variando entre 2 e 5. Esse procedimento visa refletir a variabilidade estrutural típica de instâncias reais de problemas SAT, conforme sugerido por \citeonline{gomes1998boosting}, que destacam a importância da diversidade estrutural na análise experimental de transições de fase e comportamento algorítmico.
+
+Após a definição do número de cláusulas de uma fórmula, será feito o sorteio da quantidade máxima de literais distintos a serem utilizados em sua construção, selecionando-se aleatoriamente um subconjunto de tamanho variável entre 2 e 5, extraído de um universo de $10^2$ literais disponíveis. A construção das cláusulas segue as restrições da lógica proposicional na FNC com cláusulas de exatamente dois literais, conforme a definição clássica do problema 2-SAT \cite{el2016computational}. A formulação resultante pode assumir, por exemplo, a forma $(U \lor Z) \land (D \lor K)$, $(Z \lor D) \land K$, ou ainda $U \lor D$, entre outras combinações válidas, respeitando o formato binário típico desse problema.
+
+Importante destacar que, uma vez sorteada uma valoração \textit{booleana} para um literal, esta deve permanecer constante ao longo de todas as fórmulas em que ele eventualmente venha a ser reutilizado. Ou seja, literais previamente valorados em fórmulas anteriores não terão sua atribuição alterada, preservando a consistência global da valoração ao longo do experimento. Ao final do processo, todas as dez fórmulas geradas, acompanhadas de suas respectivas valorações, serão impressas para fins de análise experimental e posterior avaliação de desempenho das estratégias de satisfação aplicadas.
+
+\section{Geração de fórmulas 3-SAT para $10^3$ literais}
+
+No caso da geração de instâncias 3-SAT, será adotada uma metodologia similar à utilizada para o 2-SAT, porém com configurações adaptadas à maior complexidade estrutural desse tipo de problema. Para fins experimentais, considera-se a geração de $m = 50$ fórmulas distintas na FNC, cada uma composta por cláusulas com até três literais, como exige a definição clássica do 3-SAT \cite{el2016computational}. Inicialmente, será realizado, para cada fórmula, um sorteio aleatório do número de cláusulas, com valores inteiros variando entre 1 e 10, de modo a garantir diversidade sintática e estrutural nas instâncias construídas.  
+
+Para cada fórmula, será realizado um segundo sorteio que determina o número máximo de literais distintos a serem utilizados, com valores variando entre 1 e 100, selecionados a partir de um universo fixo de $10^3$ literais possíveis. Tal abordagem visa simular cenários realistas com alta dispersão de variáveis, como sugerido por estudos sobre complexidade estrutural e escalabilidade de instâncias SAT \cite{coarfa2003random}. Embora o sorteio   defina, por exemplo, que uma fórmula possa conter até 4 cláusulas, a limitação imposta pelo número máximo de literais pode restringir a construção efetiva das cláusulas. Em um caso ilustrativo, se apenas dois literais forem sorteados para compor uma fórmula inicialmente prevista com quatro cláusulas, na prática, apenas três cláusulas serão formáveis, dada a necessidade de evitar repetições triviais e manter a semântica da disjunção de três literais.
+
+Supondo que uma fórmula tenha sido sorteada com 4 cláusulas, mas apenas 2 literais distintos tenham sido selecionados: $U$ e $Z$. As três primeiras cláusulas poderiam ser:
+
+\begin{enumerate}
+    \item $(U \lor Z \lor \lnot U)$
+    \item $(Z \lor \lnot Z \lor U)$
+    \item $(\lnot U \lor \lnot Z \lor U)$
+\end{enumerate}
+
+No entanto, com apenas dois literais disponíveis, torna-se inviável construir uma quarta cláusula não trivial, dada a limitação de contagem e a necessidade de se evitar redundância.
+
+Tal como no procedimento adotado para o 2-SAT, a consistência da valoração dos literais é uma exigência metodológica. Uma vez feita uma valoração de literal, esta deve ser constante nas fórmulas subsequentes em que o literal venha a ser reutilizado, assegurando integridade semântica e permitindo avaliação coerente do desempenho dos algoritmos de aproximação ou heurísticas aplicados. Ao final de uma geração, todas as 50 fórmulas resultantes, juntamente com a valoração associada a cada literal, serão impressas, permitindo a realização de análises empíricas sobre o grau de satisfatibilidade alcançado, o comportamento dos algoritmos de otimização e a ocorrência de padrões de transição de fase \cite{monasson1999determining}.

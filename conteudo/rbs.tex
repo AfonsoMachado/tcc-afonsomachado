@@ -1,0 +1,353 @@
+\chapter{Revisão Bibliográfica Sistemática}
+
+Para dar início à feitura de um trabalho científico, é de suma importância a realização de uma Revisão Bibliográfica Sistemática (\sigla{RBS}{Revisão Bibliográfica Sistemática}) de trabalhos correlatos ao tema em pesquisa, reunindo-se fontes confiáveis para a confecção do novo trabalho. Esse processo visa a alguma tendência de inovação, para enriquecer o estado da arte.
+
+Neste capítulo será discriminado o passo a passo da realização da RBS, desde a construção de uma questão de pesquisa baseada no tema, até a pormenorização da informação construída.
+
+\section{Questão de Pesquisa} 
+
+A RBS foi iniciada tomando como base a seguinte questão de pesquisa: "A que conclusões comparativas pode-se chegar, a partir de uma análise do fenômeno de transição de fase, em soluções de exemplos do Problema da Satisfatibilidade Booleana (\sigla{SAT}{Problema da Satisfatibilidade Booleana})?".
+
+\section{Processo de Revisão Bibliográfica Sistemática}
+
+Esta RBS foi feita em meio digital, com o auxílio de bases de pesquisa confiáveis para a busca de referências e a verificação indireta de outras, a ser encontradas nessas, que fossem consideradas relevantes.
+
+\subsection{Base de Pesquisa}
+
+Para se obterem mais resultados e o uso de um método de caracterização da qualidade dos itens encontrados, foram utilizadas duas bases de pesquisa para esta RBS, o \textit{Google} Acadêmico e o \textit{IEEE Xplore}.
+
+\subsubsection{Google Acadêmico}
+
+Trata-se de uma ferramenta lançada pelo \textit{Google} em 2004, com o objetivo de ser um mecanismo de pesquisa de livre acesso à comunidade, para indexar textos da literatura acadêmica, sejam eles livros, revistas, patentes, teses, dissertações, entre outros. Um dos recursos mais úteis do \textit{Google} Acadêmico é a possibilidade de usar operadores booleanos e operadores de busca para refinar uma pesquisa na ferramenta. A partir dessa funcionalidade por exemplo, pode-se criar uma query de busca específica de apenas partes de um texto dentro do resultado, podendo ser uma lista de diferentes partes usando o operador booleano OR. Além dessas funções pode-se destacar também a possibilidade de se realizarem filtragens de uma pesquisa por um período específico de tempo, por idioma ou por relevância. O \textit{Google} Acadêmico ao encontrar um texto exibe de imediato informações úteis sobre o mesmo, como o autor, a quantidade de citações, outros textos relacionados, onde e quando foi publicado, além de ser fornecida a maneira correta de realizar a sua citação em vários padrões.
+
+Para as pesquisas realizadas foi usado o operador de busca \textit{intitle}, que mostra resultados contendo a palavra-chave ou frase especificada dentro do título da página, inclusive em diversas combinações diferentes.
+
+\subsubsection{IEEE Xplore}
+
+É um banco de dados para busca de artigos, anais de conferências, normas técnicas e outros materiais relacionados diretamente às áreas de engenharia elétrica e eletrônica e ciências da computação. Criado pelo Instituto de Engenheiros Eletricistas e Eletrônicos (\sigla{IEEE}{Instituto de Engenheiros Eletricistas e Eletrônicos}) em 2000, contém material publicado principalmente por afiliados do IEEE e outras editoras parceiras.
+
+Assim como o \textit{Google} Acadêmico, o \textit{IEEE Xplore} também fornece vários métodos de aplicar as buscas, com o uso de operadores específicos tendo a finalidade de retornar melhores resultados. Além dos operadores booleanos AND, OR e NOT, o \textit{IEEE Xplore} possui uma série de \textit{Data Fields}, que identificam partes específicas de um documento com a finalidade de limitar uma pesquisa somente a essas partes, por exemplo, existe o campo \textit{Document Title}, que busca somente registros encontrados nos títulos dos documentos. 
+
+A possibilidade de filtragem por data e relevância aliado às ferramentas de pesquisa avançada tornam o \textit{IEEE Xplore} uma ótima base de dados para enriquecimento da RBS.
+
+\subsection{Queries de Busca}
+
+Como as primeiras buscas foram realizadas utilizando o \textit{Google} Acadêmico, foram elaboradas as \textit{queries} de busca abaixo, usando somente do operador \textit{intitle}, que busca por resultados que obrigatoriamente devem ter determinado termo no título, nesse caso o termo SAT deve estar presente no título de todos os artigos encontrados na busca, enquanto o restante da \textit{query} pode estar localizado tanto no título quanto no conteúdo do documento.
+
+\begin{itemize}
+   \item intitle:SAT solver phase transition
+   \item intitle:SAT solver phase transition analysis
+\end{itemize} 
+
+Na elaboração das \textit{queries} de busca para o IEEE Xplore, foi tido como base o mesmo critério usado para o Google Acadêmico, onde o termo SAT deve estar obrigatoriamente presente no título do documento. para construir a query de busca específica para o IEEE Xplore foi utilizada a ferramenta \textit{Command Search} do mesmo, que permite agrupar os operadores disponíveis para a busca avançada com o texto que deve ser pesquisado, criando uma \textit{query} de busca. Alguns dos operadores que podem ser usados estão listados na tabela \ref{table:ieeexplore_opeartors}.
+
+\begin{table}[!htb]
+\centering
+\caption{Exemplos de operadores do IEEE Xplore}
+    \begin{tabular}{|p{3cm}|P{10cm}|}
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    \textbf{Operador}     & \textbf{Descrição}                                                                                                                                                              \\ \hline
+    Document Title        & Título de um documento individual (artigo de periódico, artigo de conferência, padrão, capítulo de livro ou curso).                                                             \\ \hline
+    Full Text \& Metadata & Full Text refere-se ao texto de um artigo, norma, etc. Metadata são as informações detalhadas que descrevem o texto completo, como nomes dos autores, data de publicação e DOI. \\ \hline
+    AND                   & Para x AND y, corresponde ambas as expressões x e y                                                                                                                             \\ \hline
+    OR                    & Para x OR y, corresponde à expressão x ou y ou ambas                                                                                                                            \\ \hline
+    \end{tabular}
+\label{table:ieeexplore_opeartors}
+\end{table} 
+
+
+ Nos primeiros testes de busca foi utilizada a query (("Document Title":SAT) AND ("Full Text \& Metadata":"solver phase transition")), utilizando também da precedência de parenteses para o correto reconhecimento da query, porém esta trouxe pouquíssimos resultados, pois o operador \textit{"Full Text \& Metadata"} considera todo o texto indicado, na ordem em que está escrito. Nesse caso foi necessário o uso dos operadores AND e OR para obter os resultados de forma semelhante às \textit{queries} usadas para o Google Acadêmico, resultando nas seguintes \textit{queries}:
+
+    \begin{itemize}
+        \item (("Document Title":SAT) AND ("Full Text \& Metadata":solver OR "Full Text \& Metadata":"phase transition"))
+        \item (("Document Title":SAT) AND ("Full Text \& Metadata":solver OR "Full Text \& Metadata":"phase transition" OR "Full Text \& Metadata":analysis))
+    \end{itemize}
+
+Conforme as \textit{queries} de busca acima, utilizando do operador "Full Text \& Metadata", é realizada uma busca das expressões 'solver', 'phase transition' e 'analysis' separadamente em todo o conteúdo do documento, resultando assim uma quantidade satisfatórias de resultados como indicado.
+
+Com uma quantidade satisfatória de resultados para cada \textit{query}, foi verificado que as mesmas ajudaram bastante gerando uma quantidade de resultados satisfatória na busca, conforme demonstra as tabelas \ref{table:gs_result} e \ref{table:ieee_result}.
+
+\begin{table}[!htb]
+\centering
+\caption{Quantidade de resultados nas buscas usando Google Acadêmico}
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{\textit{Query} de Busca}                      & \textbf{Quantidade de Itens} \\ \hline
+\textit{intitle:SAT solver phase transition}          & 751                          \\ \hline
+\textit{intitle:SAT solver phase transition analysis} & 620                          \\ \hline
+\end{tabular}\label{table:gs_result}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\caption{Quantidade de resultados nas buscas usando IEEE Xplore}
+\begin{tabular}{|p{10cm}|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{\textit{Query} de Busca} & \textbf{Quantidade de Itens} \\ \hline
+(("Document Title":SAT) AND ("Full Text \& Metadata":solver OR "Full Text \& Metadata":"phase transition")) & 816 \\ \hline
+(("Document Title":SAT) AND ("Full Text \& Metadata":solver OR "Full Text \& Metadata":"phase transition" OR "Full Text \& Metadata":analysis)) & 1522 \\ \hline
+\end{tabular}
+\label{table:ieee_result}
+\end{table}
+
+De todas as listas de referências citadas acima, inicialmente foram selecionados os 100 primeiros documentos que as buscam trouxeram, que então foram filtrados em documentos publicados entre os anos de 2015 e 2024, resultando em uma lista com em média 50 itens para cada busca. Dos 50 itens resultantes foram selecionados os 10 primeiros documentos com o maior número de citações e os 10 documentos mais recentes.
+
+As tabelas \ref{table:q1v1a} a \ref{table:q3v1b} listam os documentos selecionados seguindo os critérios definidos acima.
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por quantidade de citações encontrados usando a query intitle:SAT solver phase transition} 
+    \label{table:q1v1a}
+    \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition (continuação)}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    Learning a SAT solver from single-bit supervision                                                          & 527                                                                      & 2018                                                                    \\ \hline
+    Hordesat: A massively parallel portfolio SAT solver                                                        & 118                                                                      & 2015                                                                    \\ \hline
+    The configurable SAT solver challenge (CSSC)                                                               & 82                                                                       & 2017                                                                    \\ \hline
+    Can q-learning with graph networks learn a generalizable branching heuristic for a sat solver?             & 69                                                                       & 2020                                                                    \\ \hline
+    NNgSAT: Neural network guided SAT attack on logic locked complex structures                                & 68                                                                       & 2020                                                                    \\ \hline
+    SAT competition 2018                                                                                       & 57                                                                       & 2019                                                                    \\ \hline
+    A modularity-based random SAT instances generator                                                          & 55                                                                       & 2015                                                                    \\ \hline
+    Finding and proving the exact ground state of a generalized Ising model by convex optimization and MAX-SAT & 46                                                                       & 2016                                                                    \\ \hline
+    Generating SAT instances with community structure                                                          & 45                                                                       & 2016                                                                    \\ \hline
+    A verified SAT solver with watched literals using imperative HOL                                           & 43                                                                       & 2018                                                                    \\ \hline
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por ano de publicação encontrados usando a query intitle:SAT solver phase transition} \label{table:q1v1b} \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition (continuação)}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    Fast Analysis of the OpenAI O1-Preview Model in Solving Random K-SAT Problem: Does the LLM Solve the Problem Itself or Call an External SAT Solver? & 4  & 2024 \\ \hline
+    Can large language models reason? a characterization via 3-sat                                                                                      & 4  & 2024 \\ \hline
+    How Easy is SAT-Based Analysis of a Feature Model?                                                                                                  & 2  & 2024 \\ \hline
+    Exploring the Computational Complexity of SAT Counting and Uniform Sampling with Phase Transitions                                                  & 0  & 2024 \\ \hline
+    Graph neural network based time estimator for SAT solver                                                                                            & 0  & 2024 \\ \hline
+    Scale-free random SAT instances                                                                                                                     & 8  & 2022 \\ \hline
+    Real-like MAX-SAT instances and the landscape structure across the phase transition                                                                 & 2  & 2021 \\ \hline
+    MAX 2-SAT                                                                                                                                           & 0  & 2021 \\ \hline
+    Can q-learning with graph networks learn a generalizable branching heuristic for a sat solver?                                                      & 69 & 2020 \\ \hline
+    NNgSAT: Neural network guided SAT attack on logic locked complex structures                                                                         & 68 & 2020 \\ \hline
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por quantidade de citações encontrados usando a query intitle:SAT solver phase transition analysis} 
+    \label{table:q1v1c}  \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition analysis}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition analysis (continuação)}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    Conflict-driven clause learning SAT solvers                                                    & 694 & 2021 \\ \hline
+    Learning a SAT solver from single-bit supervision                                              & 527 & 2018 \\ \hline
+    The configurable SAT solver challenge (CSSC)                                                   & 82  & 2017 \\ \hline
+    Can q-learning with graph networks learn a generalizable branching heuristic for a sat solver? & 69  & 2020 \\ \hline
+    NNgSAT: Neural network guided SAT attack on logic locked complex structures                    & 68  & 2020 \\ \hline
+    SAT competition 2018                                                                           & 57  & 2018 \\ \hline
+    A modularity-based random SAT instances generator                                              & 55  & 2015 \\ \hline
+    Overview and analysis of the SAT Challenge 2012 solver competition                             & 51  & 2015 \\ \hline
+    Generating SAT instances with community structure                                              & 45  & 2016 \\ \hline
+    A verified SAT solver with watched literals using imperative HOL                               & 43  & 2018 \\ \hline
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por ano de publicação encontrados usando a query intitle:SAT solver phase transition analysis} 
+    \label{table:q2v1a}
+    \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition analysis}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{intitle: SAT solver phase transition analysis (continuação)}}  \\ \hline 
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    Fast Analysis of the OpenAI O1-Preview Model in Solving Random K-SAT Problem: Does the LLM Solve the Problem Itself or Call an External SAT Solver? & 4  & 2024 \\ \hline
+    Can large language models reason? a characterization via 3-sat                                                                                      & 4  & 2024 \\ \hline
+    How Easy is SAT-Based Analysis of a Feature Model?                                                                                                  & 2  & 2024 \\ \hline
+    Wance: Learnt clause evaluation method for sat solver using graph structure                                                                         & 1  & 2024 \\ \hline
+    Exploring the Computational Complexity of SAT Counting and Uniform Sampling with Phase Transitions                                                  & 0  & 2024 \\ \hline
+    Hardsatgen: Understanding the difficulty of hard sat formula generation and a strong structure-hardness-aware baseline                              & 20 & 2023 \\ \hline
+    Coherent SAT solvers: a tutorial                                                                                                                    & 13 & 2023 \\ \hline
+    Domain dependent parameter setting in sat solver using machine learning techniques                                                                  & 3  & 2022 \\ \hline
+    A Structural and SAT Analysis of SANSCrypt                                                                                                          & 0  & 2022 \\ \hline
+    Conflict-driven clause learning SAT solvers                                                                                                         & 694 & 2021 \\ \hline
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por quantidade de citações encontrados usando a query ((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition))} \label{table:q2v1b} \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition))} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition)) (continuação)} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    A Circuit-Based SAT Solver for Logic Synthesis                                                                                                    & 11 & 2021 \\ \hline
+    FPGA-Based Hardware/Software Co-Design of a Bio-Inspired SAT Solver                                                                               & 11 & 2020 \\ \hline
+    Benchmarking the Capabilities and Limitations of SAT Solvers in Defeating Obfuscation Schemes                                                     & 11 & 2018 \\ \hline
+    The Algorithmic Phase Transition of Random k-SAT for Low Degree Polynomials                                                                       & 10 & 2022 \\ \hline
+    Deep Integration of Circuit Simulator and SAT Solver                                                                                              & 10 & 2021 \\ \hline
+    Finding Minimum Locating Arrays Using a SAT Solver                                                                                                & 10 & 2017 \\ \hline
+    Function Block Finite-State Model Identification Using SAT and CSP Solvers                                                                        & 9  & 2019 \\ \hline
+    29.1 A 32.5mW Mixed-Signal Processing-in-Memory-Based k-SAT Solver in 65nm CMOS with 74.0\% Solvability for 30-Variable 126-Clause 3-SAT Problems & 6  & 2023 \\ \hline
+    Amoeba-Inspired Hardware SAT Solver with Effective Feedback Control                                                                               & 5  & 2019 \\ \hline
+    NoSQL database generation using SAT solver                                                                                                        & 5  & 2016 \\ \hline
+
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por ano de publicação encontrados usando a query ((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition))} \label{table:q2v1c} \\
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition))} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+    
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:phase transition)) (continuação)} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+    
+    \hline
+    \endfoot
+    
+    Novel Optimized Implementations of Lightweight Cryptographic S-Boxes via SAT Solvers                  & 2  & 2024 \\ \hline
+    30.3 VIP-Sat: A Boolean Satisfiability Solver Featuring 5×12 Variable In-Memory Processing Elements with 98\% Solvability for 50-Variables 218-Clauses 3-SAT Problems & 2  & 2024 \\ \hline
+    NeuroDual: A Hybrid SAT Solver Combining Graph Attention Networks with Algorithmic Techniques         & 0  & 2024 \\ \hline
+    Exploring Full Adder Design using SAT-Based Approach                                                  & 0  & 2024 \\ \hline
+    A Stochastic Analog SAT Solver in 65nm CMOS Achieving 6.6\(\mu\)s Average Solution Time with 100\% Solvability for Hard 3-SAT Problems & 0  & 2024 \\ \hline
+    29.1 A 32.5mW Mixed-Signal Processing-in-Memory-Based k-SAT Solver in 65nm CMOS with 74.0\% Solvability for 30-Variable 126-Clause 3-SAT Problems & 6  & 2023 \\ \hline
+    29.2 Snap-SAT: A One-Shot Energy-Performance-Aware All-Digital Compute-in-Memory Solver for Large-Scale Hard Boolean Satisfiability Problems & 4  & 2023 \\ \hline
+    Verified Encodings for SAT Solvers                                                                    & 0  & 2023 \\ \hline
+    Local Search and Its Application in CDCL/CDCL(T) solvers for SAT/SMT                                  & 0  & 2023 \\ \hline
+    CirSAT: An Efficient Circuit-based SAT Solver via Fanout-driven Decision Heuristic                    & 0  & 2023 \\ \hline
+
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por quantidade de citações encontrados usando a query ((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis))}
+    \label{table:q3v1a}
+    \\ 
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis))} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis)) (continuação)} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    Scratch Analysis Tool(SAT): A Modern Scratch Project Analysis Tool based on ANTLR to Assess Computational Thinking Skills & 25  & 2018 \\ \hline
+    A Circuit-Based SAT Solver for Logic Synthesis & 11  & 2021 \\ \hline
+    FPGA-Based Hardware/Software Co-Design of a Bio-Inspired SAT Solver & 11  & 2020 \\ \hline
+    The Algorithmic Phase Transition of Random k-SAT for Low Degree Polynomials & 10  & 2022 \\ \hline
+    Deep Integration of Circuit Simulator and SAT Solver & 10  & 2021 \\ \hline
+    Finding Minimum Locating Arrays Using a SAT Solver & 10  & 2017 \\ \hline
+    29.1 A 32.5mW Mixed-Signal Processing-in-Memory-Based k-SAT Solver in 65nm CMOS with 74.0\% Solvability for 30-Variable 126-Clause 3-SAT Problems & 6  & 2023 \\ \hline
+    Amoeba-Inspired Hardware SAT Solver with Effective Feedback Control & 5  & 2019 \\ \hline
+    NoSQL database generation using SAT solver & 5  & 2016 \\ \hline
+    29.2 Snap-SAT: A One-Shot Energy-Performance-Aware All-Digital Compute-in-Memory Solver for Large-Scale Hard Boolean Satisfiability Problems & 4  & 2023 \\ \hline
+
+\end{longtable}
+\fonte{Próprio autor}
+
+
+\begin{longtable}{|p{10cm}|P{2cm}|P{2.6cm}|}
+    \caption{Resultados ordenados por ano de publicação, encontrados usando a query ((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis))} \label{table:q3v1b} \\ 
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis))} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endfirsthead
+
+    \hline
+    \multicolumn{3}{|c|}{\cellcolor[HTML]{C0C0C0}\parbox{14.6cm}{\centering \vspace{3pt} \textbf{((\textquotedbl Document Title\textquotedbl:SAT) AND (\textquotedbl Full Text \& Metadata\textquotedbl:solver OR \textquotedbl Full Text \& Metadata\textquotedbl:"phase transition" OR \textquotedbl Full Text \& Metadata\textquotedbl:analysis)) (continuação)} \strut }}  \\ \hline  
+    \multicolumn{1}{|c|}{\textbf{TÍTULO}}    & \textbf{CITAÇÕES} & \textbf{PUBLICAÇÃO} \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    30.3 VIP-Sat: A Boolean Satisfiability Solver Featuring 5×12 Variable In-Memory Processing Elements with 98\% Solvability for 50-Variables 218-Clauses 3-SAT Problems & 2  & 2024 \\ \hline
+    NeuroDual: A Hybrid SAT Solver Combining Graph Attention Networks with Algorithmic Techniques & 0  & 2024 \\ \hline
+    A Stochastic Analog SAT Solver in 65nm CMOS Achieving 6.6\(\mu\)s Average Solution Time with 100\% Solvability for Hard 3-SAT Problems & 0  & 2024 \\ \hline
+    29.1 A 32.5mW Mixed-Signal Processing-in-Memory-Based k-SAT Solver in 65nm CMOS with 74.0\% Solvability for 30-Variable 126-Clause 3-SAT Problems & 6  & 2023 \\ \hline
+    29.2 Snap-SAT: A One-Shot Energy-Performance-Aware All-Digital Compute-in-Memory Solver for Large-Scale Hard Boolean Satisfiability Problems & 4  & 2023 \\ \hline
+    Verified Encodings for SAT Solvers & 0  & 2023 \\ \hline
+    Local Search and Its Application in CDCL/CDCL(T) solvers for SAT/SMT & 0  & 2023 \\ \hline
+    CirSAT: An Efficient Circuit-based SAT Solver via Fanout-driven Decision Heuristic & 0  & 2023 \\ \hline
+    A SAT Enhanced Word-Level Solver for Constrained Random Simulation & 0  & 2023 \\ \hline
+    The Algorithmic Phase Transition of Random k-SAT for Low Degree Polynomials & 10  & 2022 \\ \hline
+
+
+\end{longtable}
+\fonte{Próprio autor}
+
+Este trabalho também contemplará uma análise dos resultados da RBS, descrevendo como a construção de um conjunto sólido de itens de referência, que atendesse as necessidades do trabalho, foi alcançada.
+
+Como a pesquisa nas duas bases acadêmicas usadas levou a uma quantidade considerável de itens, foram necessários critérios típicos de seleção, para que se discriminassem os itens relevantes. Sendo assim, será feita também uma apresentação desses critérios.
